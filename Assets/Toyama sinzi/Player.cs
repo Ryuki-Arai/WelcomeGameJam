@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
     {
         jmp = true;
     }
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         jmp = false;
     }
