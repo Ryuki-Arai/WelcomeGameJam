@@ -2254,10 +2254,11 @@ MonoBehaviour:
   speed: 5
   jumpPower: 5
   Hp: 5
-  BulletObj: {fileID: 4008832271492494528, guid: fe86ff9f917d1d141810f0e06db62250, type: 3}
+  RiBulletObj: {fileID: 4008832271492494528, guid: fe86ff9f917d1d141810f0e06db62250, type: 3}
+  LeBulletObj: {fileID: 3479389536461285154, guid: 888693e511aafa6498548770dca50165, type: 3}
   BulletShot: {fileID: 854536828}
   rensyaBousi: 0
-  rirod: 0
+  rirod: 1.5
 --- !u!50 &1730896493
 Rigidbody2D:
   serializedVersion: 4
@@ -2336,7 +2337,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 71dc3ac932c4a3740ade59a44471c188, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

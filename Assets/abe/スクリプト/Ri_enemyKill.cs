@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemyKill : MonoBehaviour
+public class Ri_enemyKill : MonoBehaviour
 {
     public int BulletSpeed = 1;
     public GameObject muzzlePoint;
@@ -12,8 +12,6 @@ public class enemyKill : MonoBehaviour
     {
         Invoke("Syatei", 3.0f);
         //bulletDI = PlayerShot.BulletDI;
-
-       
     }
     public void Update()
     {
