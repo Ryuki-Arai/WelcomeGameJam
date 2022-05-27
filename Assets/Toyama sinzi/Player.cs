@@ -18,22 +18,27 @@ public class Player : MonoBehaviour
     public static int BulletDI;
     //
     bool jmp;
+    private Animator anim = null;
+    SpriteRenderer SpRdr;
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        SpRdr = GetComponent<SpriteRenderer>();
         //
         rensyaBousi = true;
         //
     }
+    
     void Update()
     {
 
         //ˆÈ‰ºAbe’Ç‰Á
         Vector2 scale = transform.localScale;
-        if (rb2d.velocity.x > 1)     
-            scale.x = 1; 
-        else if (rb2d.velocity.x < -1) 
-            scale.x = -1; 
+        if (rb2d.velocity.x > 1)
+            SpRdr.flipX = false;
+        else if (rb2d.velocity.x < -1)
+            SpRdr.flipX = true;
         transform.localScale = scale;
         if (Input.GetButtonDown("Fire1"))
         {
@@ -71,6 +76,17 @@ public class Player : MonoBehaviour
         }
     
     }
+
+    private void LateUpdate()
+    {
+        if(anim)
+        {
+            Vector2 speed = rb2d.velocity;
+            speed.y = 0;
+            anim.SetFloat("Speed", speed.magnitude);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         jmp = true;
