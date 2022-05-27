@@ -439,7 +439,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8e931e48142a86044abbc5c6ae06bc49, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -497,6 +497,7 @@ MonoBehaviour:
   BulletObj: {fileID: 4008832271492494528, guid: fe86ff9f917d1d141810f0e06db62250, type: 3}
   BulletShot: {fileID: 250631573}
   rensyaBousi: 0
+  rirod: 2
 --- !u!114 &573964671
 MonoBehaviour:
   m_ObjectHideFlags: 0

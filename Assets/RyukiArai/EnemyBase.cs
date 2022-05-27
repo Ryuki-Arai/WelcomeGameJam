@@ -8,6 +8,7 @@ public abstract class EnemyBase : MonoBehaviour
     [SerializeField] int _ap;
     [SerializeField] int _hp;
     [SerializeField] int _speed;
+    [SerializeField] int _score;
     Transform _pPos;
     public int vec = -1;
 
@@ -27,14 +28,21 @@ public abstract class EnemyBase : MonoBehaviour
         _rb2d.velocity = velocity;
         Action();
         if (_hp < 0) Destroy(this.gameObject);
-        if(this.transform.position.y < -10) Destroy(this.gameObject);
+        if (this.transform.position.y < -10)
+        {
+            GameManager.Instance.Score += _score;
+            Destroy(this.gameObject);
+        }
     }
 
     public abstract void Action();
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        _hp--;
-        Destroy(collision.gameObject);
+        if (collision.gameObject.tag == "Bullet")
+        {
+            _hp--;
+            Destroy(collision.gameObject);
+        }
     }
 }

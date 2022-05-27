@@ -8,7 +8,7 @@ public class PlayerShot : MonoBehaviour
     public GameObject BulletObj;
     public GameObject BulletShot;
     public bool rensyaBousi;
-   
+    public float rirod;
     
    
     public void Start()
@@ -30,7 +30,7 @@ public class PlayerShot : MonoBehaviour
                 //newbullet.name = BulletObj.name;
                 //Destroy(newbullet, 0.8f);
                 rensyaBousi = false;
-                Invoke("rensya", 3.0f);
+                Invoke("rensya", rirod);
             }
            
         }
