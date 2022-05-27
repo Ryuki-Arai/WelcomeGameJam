@@ -46,7 +46,7 @@ public abstract class EnemyBase : MonoBehaviour
         }
         if(collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Player>().Damage();
+            collision.gameObject.GetComponent<Player>().Damege();
         }
     }
 }
