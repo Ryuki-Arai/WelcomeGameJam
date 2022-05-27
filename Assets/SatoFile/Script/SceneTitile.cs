@@ -8,6 +8,7 @@ public class SceneTitile : MonoBehaviour
 
     public void OnClick()
     {
+        Debug.Log("‚ ‚ ");
         SceneManager.LoadScene("");
     }
 }
