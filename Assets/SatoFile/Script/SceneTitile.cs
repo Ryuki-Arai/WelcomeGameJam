@@ -8,6 +8,6 @@ public class SceneTitile : MonoBehaviour
 
     public void OnClick()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("TitleScene");
     }
 }
