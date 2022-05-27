@@ -35,5 +35,6 @@ public abstract class EnemyBase : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         _hp--;
+        Destroy(collision.gameObject);
     }
 }
