@@ -18,6 +18,11 @@ public class TitleScript : MonoBehaviour
     }
     public void OnClick()
     {
+        AudioSource audio = this.gameObject.GetComponent<AudioSource>();
+        if (audio != null)
+        {
+            audio.Play();
+        }
         SceneManager.LoadScene("SceneMoving");
     }
 }
