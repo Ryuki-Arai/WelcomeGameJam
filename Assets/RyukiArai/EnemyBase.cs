@@ -9,12 +9,14 @@ public abstract class EnemyBase : MonoBehaviour
     [SerializeField] int _hp;
     [SerializeField] int _speed;
     [SerializeField] int _score;
+    Transform _pPos;
     public int vec = -1;
 
     // Start is called before the first frame update
     void Start()
     {
         _rb2d = GetComponent<Rigidbody2D>();
+        _pPos = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
