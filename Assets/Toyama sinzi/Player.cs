@@ -11,7 +11,9 @@ public class Player : MonoBehaviour
     public float jumpPower = 15f;
     public int Hp = 5;
     //
-    public GameObject BulletObj;
+    public SpriteRenderer SpRdr
+    public GameObject LeBulletObj;
+    public GameObject RiBulletObj;
     public GameObject BulletShot;
     public bool rensyaBousi;
     public float rirod;
@@ -28,24 +30,47 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        //ˆÈ‰ºAbe’Ç‰Á
+        //???Abe???
         Vector2 scale = transform.localScale;
-        if (rb2d.velocity.x > 1)     
-            scale.x = 1; 
-        else if (rb2d.velocity.x < -1) 
-            scale.x = -1; 
-        transform.localScale = scale;
-        if (Input.GetButtonDown("Fire1"))
+        if (rb2d.velocity.x >= 1)
         {
-            Vector2 mballpos = BulletShot.transform.position;
-            GameObject newbullet = Instantiate(BulletObj, mballpos, BulletShot.transform.rotation);
-            Vector2 dir = BulletShot.transform.forward;
+            SpRdr.flipX = false;
+        }
 
-            //newbullet.GetComponent<Rigidbody2D>().AddForce(dir * BulletSpeed, ForceMode.Impulse);
-            //newbullet.name = BulletObj.name;
-            //Destroy(newbullet, 0.8f);
-            rensyaBousi = false;
-            Invoke("rensya", rirod);
+
+        else if (rb2d.velocity.x < -1)
+        {
+            SpRdr.flipX = true;
+        }
+        if (SpRdr.flipX == false)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                if (rensyaBousi == true)
+                {
+                    Vector2 mballpos = BulletShot.transform.position;
+                    GameObject newbullet = Instantiate(RiBulletObj, mballpos, BulletShot.transform.rotation);
+                    Invoke("rensya", rirod);
+                    rensyaBousi = false;
+
+                }
+
+            }
+        }
+        else
+        if (SpRdr.flipX == true)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                if (rensyaBousi == true)
+                {
+                    Vector2 mballpos = BulletShot.transform.position;
+                    GameObject newbullet = Instantiate(LeBulletObj, mballpos, BulletShot.transform.rotation);
+                    Invoke("rensya", rirod);
+                    rensyaBousi = false;
+
+                }
+            }
 
         }
         //‚±‚±‚Ü‚Å

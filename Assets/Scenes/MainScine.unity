@@ -2254,8 +2254,9 @@ MonoBehaviour:
   speed: 5
   jumpPower: 5
   Hp: 5
-  RiBulletObj: {fileID: 4008832271492494528, guid: fe86ff9f917d1d141810f0e06db62250, type: 3}
+  SpRdr: {fileID: 1730896495}
   LeBulletObj: {fileID: 3479389536461285154, guid: 888693e511aafa6498548770dca50165, type: 3}
+  RiBulletObj: {fileID: 4008832271492494528, guid: fe86ff9f917d1d141810f0e06db62250, type: 3}
   BulletShot: {fileID: 854536828}
   rensyaBousi: 0
   rirod: 1.5
