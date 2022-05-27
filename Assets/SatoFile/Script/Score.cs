@@ -12,7 +12,7 @@ public class Score : MonoBehaviour
     {
 
 
-        Scoretext.text = string.Format("Score{0}", GameManager.Instance.Score);
+        Scoretext.text = string.Format("Score: {0}", GameManager.Instance.Score);
     }
 
 }
