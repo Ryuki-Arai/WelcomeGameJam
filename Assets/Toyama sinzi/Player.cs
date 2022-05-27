@@ -5,82 +5,49 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-
+    
     public float speed;
     Rigidbody2D rb2d;
     public float jumpPower = 15f;
     public int Hp = 5;
     //
-    public GameObject RiBulletObj;
-    public GameObject LeBulletObj;
+    public GameObject BulletObj;
     public GameObject BulletShot;
     public bool rensyaBousi;
     public float rirod;
     public static int BulletDI;
     //
     bool jmp;
-    private Animator anim = null;
-    SpriteRenderer SpRdr;
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        SpRdr = GetComponent<SpriteRenderer>();
         //
         rensyaBousi = true;
         //
     }
-
     void Update()
     {
 
         //ˆÈ‰ºAbe’Ç‰Á
         Vector2 scale = transform.localScale;
-        if (rb2d.velocity.x >= 1)
+        if (rb2d.velocity.x > 1)     
+            scale.x = 1; 
+        else if (rb2d.velocity.x < -1) 
+            scale.x = -1; 
+        transform.localScale = scale;
+        if (Input.GetButtonDown("Fire1"))
         {
-            SpRdr.flipX = false;    
-        }
+            Vector2 mballpos = BulletShot.transform.position;
+            GameObject newbullet = Instantiate(BulletObj, mballpos, BulletShot.transform.rotation);
+            Vector2 dir = BulletShot.transform.forward;
 
-
-        else if (rb2d.velocity.x < -1)
-        {
-            SpRdr.flipX = true;
-            
-        }
-        if (SpRdr.flipX == false)
-        {
-            if (Input.GetButtonDown("Fire1"))
-            {
-                if (rensyaBousi == true)
-                {
-                    Vector2 mballpos = BulletShot.transform.position;
-                    GameObject newbullet = Instantiate(RiBulletObj, mballpos, BulletShot.transform.rotation);
-                    Invoke("rensya", rirod);
-                    rensyaBousi = false;
-
-                }
-
-            }
-        }else
-        if (SpRdr.flipX == true)
-        {
-            if (Input.GetButtonDown("Fire1"))
-            {
-
-                if (rensyaBousi == true)
-                {
-                    Vector2 mballpos = BulletShot.transform.position;
-                    GameObject newbullet = Instantiate(LeBulletObj, mballpos, BulletShot.transform.rotation);
-                    Invoke("rensya", rirod);
-                    rensyaBousi = false;
-
-                }
-            }
+            //newbullet.GetComponent<Rigidbody2D>().AddForce(dir * BulletSpeed, ForceMode.Impulse);
+            //newbullet.name = BulletObj.name;
+            //Destroy(newbullet, 0.8f);
+            rensyaBousi = false;
+            Invoke("rensya", rirod);
 
         }
-
-
-
         //‚±‚±‚Ü‚Å
 
 
@@ -104,17 +71,6 @@ public class Player : MonoBehaviour
         }
     
     }
-
-    private void LateUpdate()
-    {
-        if(anim)
-        {
-            Vector2 speed = rb2d.velocity;
-            speed.y = 0;
-            anim.SetFloat("Speed", speed.magnitude);
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         jmp = true;
