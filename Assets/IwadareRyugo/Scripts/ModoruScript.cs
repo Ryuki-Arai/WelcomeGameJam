@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TutorialScript : MonoBehaviour
+public class ModoruScript : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -19,10 +19,10 @@ public class TutorialScript : MonoBehaviour
     public void OnClick()
     {
         AudioSource audio = this.gameObject.GetComponent<AudioSource>();
-        if(audio != null)
+        if (audio != null)
         {
             audio.Play();
         }
-        SceneManager.LoadScene("TutorialScene");
+        SceneManager.LoadScene("TitleScript");
     }
 }
