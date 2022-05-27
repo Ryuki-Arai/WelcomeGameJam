@@ -217,6 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 398830872}
   - component: {fileID: 398830871}
+  - component: {fileID: 398830875}
   - component: {fileID: 398830870}
   - component: {fileID: 398830869}
   - component: {fileID: 398830868}
@@ -243,6 +244,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpPower: 5
+  Hp: 5
+  BulletObj: {fileID: 0}
+  BulletShot: {fileID: 0}
+  rensyaBousi: 0
+  rirod: 0
 --- !u!58 &398830869
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -272,8 +278,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08702421, y: -0.21117179}
-  m_Size: {x: 0.27223334, y: 0.5943779}
+  m_Offset: {x: -0.08702421, y: -0.1927925}
+  m_Size: {x: 0.27223334, y: 0.5576193}
   m_Direction: 0
 --- !u!212 &398830871
 SpriteRenderer:
@@ -357,6 +363,7 @@ MonoBehaviour:
   BulletObj: {fileID: 4008832271492494528, guid: fe86ff9f917d1d141810f0e06db62250, type: 3}
   BulletShot: {fileID: 398830867}
   rensyaBousi: 0
+  rirod: 0
 --- !u!50 &398830874
 Rigidbody2D:
   serializedVersion: 4
@@ -378,6 +385,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &398830875
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398830867}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ca7414440a76cf34f8a68fae3779f74d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &477310617
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,7 +720,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.78, y: 1}
+    m_SensorSize: {x: 1.7800688, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
