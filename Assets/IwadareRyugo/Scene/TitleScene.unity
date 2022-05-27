@@ -257,6 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2fa44daeebdcd4ba55855228744e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_audioPrehab: {fileID: 2540978063855704437, guid: e2cda32379b02df419f7981773657c6d, type: 3}
   asobi: {fileID: 1491426441}
 --- !u!82 &167940923
 AudioSource:
