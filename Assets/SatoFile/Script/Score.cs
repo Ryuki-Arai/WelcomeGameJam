@@ -11,7 +11,7 @@ public class Score : MonoBehaviour
     void Start()
     {
 
-
+        //スコア表記
         Scoretext.text = string.Format("Score: {0}", GameManager.Instance.Score);
     }
 
