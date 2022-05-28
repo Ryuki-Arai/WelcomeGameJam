@@ -22,7 +22,7 @@ public class TimeCounter : MonoBehaviour
         Timer -= Time.deltaTime;
         if (Timer < 0)
         {
-            SceneManager.LoadScene("Result 1");
+            SceneManager.LoadScene("Test");
         }
         timer.text = Timer.ToString("F0");
     }

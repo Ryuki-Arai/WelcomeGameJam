@@ -28,14 +28,10 @@ public abstract class EnemyBase : MonoBehaviour
         velocity.y = _rb2d.velocity.y;
         _rb2d.velocity = velocity;
         Action();
-        if (_hp <= 0) 
-        {
-            GameManager.Instance.Score += _score;
-            Destroy(this.gameObject); 
-        }
+        if (_hp <= 0) Destroy(this.gameObject);
         if (this.transform.position.y < -10)
         {
-            
+            GameManager.Instance.Score += _score;
             Destroy(this.gameObject);
         }
     }
