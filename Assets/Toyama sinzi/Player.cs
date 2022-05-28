@@ -11,18 +11,20 @@ public class Player : MonoBehaviour
     public float jumpPower = 15f;
     public int Hp = 5;
     //
-    public SpriteRenderer SpRdr
+    public SpriteRenderer SpRdr;
     public GameObject LeBulletObj;
     public GameObject RiBulletObj;
     public GameObject BulletShot;
     public bool rensyaBousi;
     public float rirod;
     public static int BulletDI;
+    Animator _anim;
     //
     bool jmp;
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        _anim = GetComponent<Animator>();
         //
         rensyaBousi = true;
         //
@@ -96,6 +98,18 @@ public class Player : MonoBehaviour
         }
     
     }
+
+    private void LateUpdate()
+    {
+        if (_anim)
+        {
+            _anim.SetBool("IsGrounded", jmp);
+            Vector2 walkSpeed = rb2d.velocity;
+            walkSpeed.y = 0;
+            _anim.SetFloat("Speed", walkSpeed.magnitude);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         jmp = true;
