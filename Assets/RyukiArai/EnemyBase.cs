@@ -27,7 +27,7 @@ public abstract class EnemyBase : MonoBehaviour
         velocity.y = _rb2d.velocity.y;
         _rb2d.velocity = velocity;
         Action();
-        if (_hp < 0) Destroy(this.gameObject);
+        if (_hp <= 0) Destroy(this.gameObject);
         if (this.transform.position.y < -10)
         {
             GameManager.Instance.Score += _score;
@@ -37,6 +37,7 @@ public abstract class EnemyBase : MonoBehaviour
 
     public abstract void Action();
 
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Bullet")
