@@ -71,6 +71,9 @@ public class Player : MonoBehaviour
                     GameObject newbullet = Instantiate(RiBulletObj, mballpos, LeBulletShot.transform.rotation);
                     Invoke("rensya", rirod);
                     rensyaBousi = false;
+                  
+                    //_anim.SetBool("Attack", true); toyama
+
 
                 }
 
@@ -87,7 +90,7 @@ public class Player : MonoBehaviour
                     GameObject newbullet = Instantiate(LeBulletObj, mballpos, RiBulletShot.transform.rotation);
                     Invoke("rensya", rirod);
                     rensyaBousi = false;
-
+                   
                 }
             }
 
@@ -121,6 +124,8 @@ public class Player : MonoBehaviour
             Vector2 walkSpeed = rb2d.velocity;
             walkSpeed.y = 0;
             _anim.SetFloat("Speed", walkSpeed.magnitude);
+
+          //  _anim.SetBool("Attack", Input.GetButtonDown("Fire1")); toyama
         }
     }
 
