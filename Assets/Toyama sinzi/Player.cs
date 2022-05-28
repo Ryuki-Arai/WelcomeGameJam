@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public float speed;
     Rigidbody2D rb2d;
     public float jumpPower = 15f;
-    public int Hp = 2;
+    public static int  Hp = 5;
     public bool LifeGard = false;
     public static bool GameCliar = true; 
     //
@@ -30,8 +30,7 @@ public class Player : MonoBehaviour
     bool jmp;
     private void Start()
     {
-        GameCliar = true;
-        GameManager.Instance.SetZero();
+        Hp = 5;
         rb2d = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
         _sld.GetComponent<Slider>();
