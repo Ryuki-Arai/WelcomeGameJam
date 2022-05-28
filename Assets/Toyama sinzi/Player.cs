@@ -26,16 +26,16 @@ public class Player : MonoBehaviour
     public Slider _sld;
     public TextMeshProUGUI _hpText;
 
-    public AudioSource _as;
-    public AudioClip _sejump;
-    public AudioClip _seattack;
+    public AudioSource _sejump;
+    public AudioSource _seattack;
 
     Animator _anim;
     //
     bool jmp;
     private void Start()
     {
-        _as = GetComponent<AudioSource>();
+        _sejump = GetComponent<AudioSource>();
+        _seattack = GetComponent<AudioSource>();
         Hp = 5;
         rb2d = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
@@ -67,30 +67,28 @@ public class Player : MonoBehaviour
         {
             SpRdr.flipX = true;
         }
-        if (SpRdr.flipX == false)
+        if (!SpRdr.flipX)
         {
             if (Input.GetButtonDown("Fire1"))
             {
                 if (rensyaBousi == true)
                 {
+                    _seattack.PlayOneShot(_seattack.clip);
                     Vector2 mballpos = LeBulletShot.transform.position;
                     GameObject newbullet = Instantiate(RiBulletObj, mballpos, LeBulletShot.transform.rotation);
                     Invoke("rensya", rirod);
                     rensyaBousi = false;
-
                     //_anim.SetBool("Attack", true); toyama
-
-                    _as.PlayOneShot(_seattack);
                 }
 
             }
         }
         else
-        if (SpRdr.flipX == true)
+        if (SpRdr.flipX)
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                _as.PlayOneShot(_seattack);
+                _seattack.PlayOneShot(_seattack.clip);
                 if (rensyaBousi == true)
                 {
                     Vector2 mballpos = RiBulletShot.transform.position;
@@ -108,7 +106,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && jmp)
         {
-            _as.PlayOneShot(_sejump);
+            _sejump.PlayOneShot(_sejump.clip);
             rb2d.AddForce(Vector2.up * jumpPower,ForceMode2D.Impulse);
         }
        
