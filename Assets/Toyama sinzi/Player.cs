@@ -25,11 +25,17 @@ public class Player : MonoBehaviour
     public static int BulletDI;
     public Slider _sld;
     public TextMeshProUGUI _hpText;
+
+    public AudioSource _as;
+    public AudioClip _sejump;
+    public AudioClip _seattack;
+
     Animator _anim;
     //
     bool jmp;
     private void Start()
     {
+        _as = GetComponent<AudioSource>();
         Hp = 5;
         rb2d = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
@@ -71,10 +77,10 @@ public class Player : MonoBehaviour
                     GameObject newbullet = Instantiate(RiBulletObj, mballpos, LeBulletShot.transform.rotation);
                     Invoke("rensya", rirod);
                     rensyaBousi = false;
-                  
+
                     //_anim.SetBool("Attack", true); toyama
 
-
+                    _as.PlayOneShot(_seattack);
                 }
 
             }
@@ -84,6 +90,7 @@ public class Player : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire1"))
             {
+                _as.PlayOneShot(_seattack);
                 if (rensyaBousi == true)
                 {
                     Vector2 mballpos = RiBulletShot.transform.position;
@@ -101,6 +108,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && jmp)
         {
+            _as.PlayOneShot(_sejump);
             rb2d.AddForce(Vector2.up * jumpPower,ForceMode2D.Impulse);
         }
        
