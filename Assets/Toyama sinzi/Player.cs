@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -21,6 +23,8 @@ public class Player : MonoBehaviour
     public bool rensyaBousi;
     public float rirod;
     public static int BulletDI;
+    public Slider _sld;
+    public TextMeshProUGUI _hpText;
     Animator _anim;
     //
     bool jmp;
@@ -28,6 +32,10 @@ public class Player : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
+        _sld.GetComponent<Slider>();
+        _sld.maxValue = Hp;
+        _sld.value = Hp;
+        _hpText.GetComponent<TextMeshProUGUI>();
         //
         rensyaBousi = true;
         //
@@ -98,8 +106,9 @@ public class Player : MonoBehaviour
         b.y = rb2d.velocity.y;
         rb2d.velocity = b;
 
-        
-    
+
+        _sld.value = Hp;
+        _hpText.text = "HP : " + Hp + " / " + _sld.maxValue;
     }
 
     private void LateUpdate()
