@@ -5,17 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class TitleScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Scene _scene;
+
     public void OnClick()
     {
         AudioSource audio = this.gameObject.GetComponent<AudioSource>();
@@ -23,6 +15,6 @@ public class TitleScript : MonoBehaviour
         {
             audio.Play();
         }
-        SceneManager.LoadScene("SceneMoving");
+        SceneManager.LoadScene("MainScine");
     }
 }

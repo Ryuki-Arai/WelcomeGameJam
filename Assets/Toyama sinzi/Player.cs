@@ -82,7 +82,6 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Jump") && jmp)
         {
             rb2d.AddForce(Vector2.up * jumpPower,ForceMode2D.Impulse);
-            Debug.Log("aaaaa");
         }
        
         float h = Input.GetAxis("Horizontal");
@@ -94,7 +93,7 @@ public class Player : MonoBehaviour
 
         if(Hp <=0)
         {
-            SceneManager.LoadScene("Result");
+            SceneManager.LoadScene("Result 1");
         }
     
     }
