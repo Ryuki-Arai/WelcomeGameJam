@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     bool jmp;
     private void Start()
     {
+        GameCliar = true;
         _sejump = GetComponent<AudioSource>();
         _seattack = GetComponent<AudioSource>();
         Hp = 5;
@@ -169,14 +170,14 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            
-               
-                Hp--;
-               
-            }
+
+
+            Hp--;
+
 
         }
-    }
+        }
+}
 
     
 
