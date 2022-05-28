@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
     bool jmp;
     private void Start()
     {
+        GameCliar = true;
+        GameManager.Instance.SetZero();
         rb2d = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
         _sld.GetComponent<Slider>();
