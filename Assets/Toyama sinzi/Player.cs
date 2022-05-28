@@ -139,7 +139,7 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "enemy")//LifeGard == false
+        if (collision.gameObject.tag == "Enemy")//LifeGard == false
         {
             Hp--;
             if (Hp <= 0)
