@@ -9,20 +9,31 @@ public abstract class EnemyBase : MonoBehaviour
     [SerializeField] int _hp;
     [SerializeField] int _speed;
     [SerializeField] int _score;
-    public 
+    SpriteRenderer SpRdr;
     Transform _pPos;
     public int vec = -1;
+    float count;
 
     // Start is called before the first frame update
     void Start()
     {
         _rb2d = GetComponent<Rigidbody2D>();
         _pPos = GameObject.FindGameObjectWithTag("Player").transform;
+        SpRdr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Vector2 scale = transform.localScale;
+        if (_rb2d.velocity.x >= 1)
+        {
+            SpRdr.flipX = false;
+        }
+        else if (_rb2d.velocity.x < -1)
+        {
+            SpRdr.flipX = true;
+        }
         Vector2 velocity = _rb2d.velocity;
         velocity =  Vector2.left * _speed * vec;
         velocity.y = _rb2d.velocity.y;
@@ -32,6 +43,14 @@ public abstract class EnemyBase : MonoBehaviour
         if (this.transform.position.y < -10)
         {
             GameManager.Instance.Score += _score;
+            Destroy(this.gameObject);
+        }
+        if(_rb2d.velocity.magnitude < 1)
+        {
+            count += Time.deltaTime;
+        }
+        if(count > 2)
+        {
             Destroy(this.gameObject);
         }
     }
@@ -46,6 +65,9 @@ public abstract class EnemyBase : MonoBehaviour
             _hp--;
             Destroy(collision.gameObject);
         }
-        if (collision.gameObject.tag == "Wall") vec *= -1;
+        if (collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Enemy")
+        {
+            vec *= -1;
+        }
     }
 }
