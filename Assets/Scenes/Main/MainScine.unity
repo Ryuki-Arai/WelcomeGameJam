@@ -1283,7 +1283,7 @@ PrefabInstance:
       objectReference: {fileID: 8705773474514894994}
     - target: {fileID: 107352901247773649, guid: 79cd85df1202a68468c027a89d55e8c4, type: 3}
       propertyPath: rirod
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 107352901247773649, guid: 79cd85df1202a68468c027a89d55e8c4, type: 3}
       propertyPath: _hpText
