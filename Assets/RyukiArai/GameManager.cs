@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    int score;
+    int  score;
 
     public int Score
     {
@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
             score = value;
         }
     }
+
+   
 
     public void SetZero()
     {
