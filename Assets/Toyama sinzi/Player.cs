@@ -10,9 +10,8 @@ public class Player : MonoBehaviour
     Rigidbody2D rb2d;
     public float jumpPower = 15f;
     public int Hp = 2;
-    public static bool GameCliar = false;
     public bool LifeGard = false;
-    
+    public static bool GameCliar = true; 
     //
     public SpriteRenderer SpRdr;
     public GameObject LeBulletObj;
@@ -39,7 +38,7 @@ public class Player : MonoBehaviour
         if(Hp <= 0)
         {
             SceneManager.LoadScene("Result 1");
-            GameCliar = true;
+            
 }
         Vector2 scale = transform.localScale;
         if (rb2d.velocity.x >= 1)
@@ -137,14 +136,9 @@ public class Player : MonoBehaviour
             if (Hp <= 0)
             {
                 SceneManager.LoadScene("Result 1");
-                //GameCliar = true;
-                //Invoke("lifeGard", 1);
+                GameCliar = false;
+                
             }
         }
     }
-    public void lifeGard()
-    {
-        GameCliar = false;
-    }
-
 }

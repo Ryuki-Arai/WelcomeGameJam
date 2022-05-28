@@ -9,6 +9,7 @@ public abstract class EnemyBase : MonoBehaviour
     [SerializeField] int _hp;
     [SerializeField] int _speed;
     [SerializeField] int _score;
+    public 
     Transform _pPos;
     public int vec = -1;
 
