@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ap: 5
-  _hp: 10
+  _hp: 1
   _speed: 5
   _score: 5
   vec: -1
