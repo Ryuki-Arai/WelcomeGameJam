@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     Rigidbody2D rb2d;
     public float jumpPower = 15f;
     public static int  Hp = 5;
-    public bool LifeGard = false;
+    public bool LifeGard = true;
     public static bool GameCliar = true; 
     //
     public SpriteRenderer SpRdr;
@@ -144,12 +144,33 @@ public class Player : MonoBehaviour
     {
         rensyaBousi = true;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")//LifeGard == false
+
+        if (collision.gameObject.tag == "Enemy" )
         {
+            if(LifeGard == true)
+            {
+            Debug.Log("aa");
             Hp--;
-            
+            LifeGard = false;
+            Invoke("LIfeGard", 1f);
+            }
+        
         }
     }
-}
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            
+               
+                Hp--;
+               
+            }
+
+        }
+    }
+
+    
+
