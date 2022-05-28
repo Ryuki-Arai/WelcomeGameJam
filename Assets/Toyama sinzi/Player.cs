@@ -42,12 +42,13 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-
-        if(Hp <= 0)
+        if (Hp <= 0)
         {
             SceneManager.LoadScene("Result 1");
-            
-}
+            GameCliar = false;
+
+        }
+     
         Vector2 scale = transform.localScale;
         if (rb2d.velocity.x >= 1)
         {
@@ -142,12 +143,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")//LifeGard == false
         {
             Hp--;
-            if (Hp <= 0)
-            {
-                SceneManager.LoadScene("Result 1");
-                GameCliar = false;
-                
-            }
+            
         }
     }
 }

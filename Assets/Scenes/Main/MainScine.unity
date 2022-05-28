@@ -972,7 +972,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.776868, y: 1}
+    m_SensorSize: {x: 1.77747, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1192,6 +1192,10 @@ PrefabInstance:
       propertyPath: _sld
       value: 
       objectReference: {fileID: 8705773474514894994}
+    - target: {fileID: 107352901247773649, guid: 79cd85df1202a68468c027a89d55e8c4, type: 3}
+      propertyPath: rirod
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 107352901247773649, guid: 79cd85df1202a68468c027a89d55e8c4, type: 3}
       propertyPath: _hpText
       value: 
