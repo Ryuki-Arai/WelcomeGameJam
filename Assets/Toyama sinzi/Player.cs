@@ -9,7 +9,10 @@ public class Player : MonoBehaviour
     public float speed;
     Rigidbody2D rb2d;
     public float jumpPower = 15f;
-    public int Hp = 5;
+    public int Hp = 2;
+    public static bool GameCliar = false;
+    public bool LifeGard = false;
+    
     //
     public SpriteRenderer SpRdr;
     public GameObject LeBulletObj;
@@ -32,7 +35,11 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        //???Abe???
+        if(Hp <= 0)
+        {
+            SceneManager.LoadScene("Result 1");
+            GameCliar = true;
+}
         Vector2 scale = transform.localScale;
         if (rb2d.velocity.x >= 1)
         {
@@ -91,10 +98,7 @@ public class Player : MonoBehaviour
         b.y = rb2d.velocity.y;
         rb2d.velocity = b;
 
-        if(Hp <=0)
-        {
-            SceneManager.LoadScene("Result 1");
-        }
+        
     
     }
 
@@ -118,15 +122,28 @@ public class Player : MonoBehaviour
         jmp = false;
     }
 
-    public void Damege()
-    {
-        Hp -= 1;
-    }
+   
     //
     public void rensya()
     {
         rensyaBousi = true;
     }
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "enemy")//LifeGard == false
+        {
+            Hp--;
+            if (Hp <= 0)
+            {
+                SceneManager.LoadScene("Result 1");
+                //GameCliar = true;
+                //Invoke("lifeGard", 1);
+            }
+        }
+    }
+    public void lifeGard()
+    {
+        GameCliar = false;
+    }
 
 }
