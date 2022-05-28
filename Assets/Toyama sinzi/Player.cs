@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-
+        Debug.Log(GameManager.Instance.Score);
         if(Hp <= 0)
         {
             SceneManager.LoadScene("Result 1");
