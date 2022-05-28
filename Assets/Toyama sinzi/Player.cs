@@ -17,7 +17,8 @@ public class Player : MonoBehaviour
     public SpriteRenderer SpRdr;
     public GameObject LeBulletObj;
     public GameObject RiBulletObj;
-    public GameObject BulletShot;
+    public GameObject LeBulletShot;
+    public GameObject RiBulletShot;
     public bool rensyaBousi;
     public float rirod;
     public static int BulletDI;
@@ -57,8 +58,8 @@ public class Player : MonoBehaviour
             {
                 if (rensyaBousi == true)
                 {
-                    Vector2 mballpos = BulletShot.transform.position;
-                    GameObject newbullet = Instantiate(RiBulletObj, mballpos, BulletShot.transform.rotation);
+                    Vector2 mballpos = LeBulletShot.transform.position;
+                    GameObject newbullet = Instantiate(RiBulletObj, mballpos, LeBulletShot.transform.rotation);
                     Invoke("rensya", rirod);
                     rensyaBousi = false;
 
@@ -73,8 +74,8 @@ public class Player : MonoBehaviour
             {
                 if (rensyaBousi == true)
                 {
-                    Vector2 mballpos = BulletShot.transform.position;
-                    GameObject newbullet = Instantiate(LeBulletObj, mballpos, BulletShot.transform.rotation);
+                    Vector2 mballpos = RiBulletShot.transform.position;
+                    GameObject newbullet = Instantiate(LeBulletObj, mballpos, RiBulletShot.transform.rotation);
                     Invoke("rensya", rirod);
                     rensyaBousi = false;
 
